@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eliken Secondary School - Computer Studies Exam</title>
+  <link rel="icon" type="image/jpeg" href="images/ELIKEN SCHOOL LOGO.jpg">
+  <style>
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+    
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      padding: 20px; 
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    
+    #container { 
+      width: 100%;
+      max-width: 1100px; 
+      margin: 20px auto; 
+      background: white; 
+      padding: 30px; 
+      border-radius: 20px; 
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      position: relative;
+      animation: fadeIn 0.5s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .hidden { display: none !important; }
+    
+    /* School Logo Styling */
+    .school-logo { 
+      width: 200px; 
+      height: 200px; 
+      object-fit: contain; 
+      margin: 0 auto 25px; 
+      display: block;
+      border: 4px solid #667eea;
+      border-radius: 50%;
+      background: #f8f9fa;
+      padding: 10px;
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+      transition: transform 0.3s ease;
+    }
+    
+    .school-logo:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Header Banner */
+    .header-banner {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+    
+    .header-banner h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      font-weight: 700;
+    }
+    
+    .header-banner p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      font-style: italic;
+    }
+    
+    h2 {
+      text-align: center;
+      color: #667eea;
+      margin: 20px 0 30px;
+      font-size: 1.8rem;
+      border-bottom: 3px solid #f0f0f0;
+      padding-bottom: 15px;
+    }
+    
+    h3 {
+      color: #2c3e50;
+      margin: 25px 0 15px;
+      font-size: 1.4rem;
+      border-left: 5px solid #667eea;
+      padding-left: 15px;
+      background: linear-gradient(to right, #f8f9fa, transparent);
+      padding: 10px 15px;
+      border-radius: 0 10px 10px 0;
+    }
+    
+    /* Login Section */
+    #loginSection {
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border-radius: 15px;
+      border: 2px solid #dee2e6;
+    }
+    
+    #loginSection label {
+      display: block;
+      margin: 15px 0 8px;
+      font-weight: 600;
+      color: #2c3e50;
+      text-align: left;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1rem;
+    }
+    
+    #loginSection input, #loginSection select {
+      width: 100%;
+      max-width: 400px;
+      padding: 14px;
+      margin: 8px auto;
+      border: 2px solid #ced4da;
+      border-radius: 10px;
+      font-size: 1rem;
+      display: block;
+      transition: all 0.3s ease;
+      background: white;
+    }
+    
+    #loginSection input:focus, #loginSection select:focus {
+      border-color: #667eea;
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+      transform: translateY(-2px);
+    }
+    
+    /* Good Luck Message */
+    .good-luck-message {
+      background: linear-gradient(135deg, #d4edda, #c3e6cb);
+      color: #155724;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 400px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border: 2px solid #28a745;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+    
+    /* Button Styling */
+    button {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 16px 45px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 20px 5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+    }
+    
+    button:active {
+      transform: translateY(1px);
+    }
+    
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    /* Timer Styling */
+    #timer { 
+      font-size: 32px; 
+      font-weight: 800; 
+      color: #dc3545;
+      background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+      padding: 12px 30px;
+      border-radius: 50px;
+      display: inline-block;
+      border: 3px solid #ffc107;
+      margin: 15px 0;
+      box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+      font-family: 'Courier New', monospace;
+    }
+    
+    .timer-warning {
+      animation: blink 0.5s infinite;
+      background: linear-gradient(135deg, #f8d7da, #f5c6cb) !important;
+      color: #721c24 !important;
+      border-color: #dc3545 !important;
+    }
+    
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    
+    /* Question Styling */
+    .question { 
+      margin-bottom: 25px; 
+      padding: 22px; 
+      background: linear-gradient(135deg, #f8f9fa, #ffffff); 
+      border-radius: 15px; 
+      border-left: 5px solid #667eea;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .question:hover {
+      transform: translateX(5px);
+      border-left-color: #764ba2;
+      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+    }
+    
+    .question b {
+      display: block;
+      margin-bottom: 15px;
+      color: #2c3e50;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    
+    /* Radio Button Styling */
+    input[type="radio"] {
+      margin-right: 10px;
+      transform: scale(1.3);
+      cursor: pointer;
+      accent-color: #667eea;
+    }
+    
+    label.radio-label {
+      display: block;
+      margin: 8px 0;
+      padding: 10px 15px 10px 35px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-radius: 8px;
+      position: relative;
+    }
+    
+    label.radio-label:hover {
+      background: linear-gradient(135deg, #e8f4f8, #f0f8ff);
+    }
+    
+    label.radio-label input[type="radio"]:checked + span {
+      font-weight: 700;
+      color: #667eea;
+    }
+    
+    /* Score Display */
+    .score-display { 
+      font-size: 22px; 
+      font-weight: 700; 
+      color: #28a745; 
+      margin: 25px 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #d4edda, #c3e6cb);
+      border-radius: 15px;
+      border-left: 5px solid #28a745;
+      box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+    }
+    
+    /* Legend Messages */
+    .legend-message {
+      font-size: 28px;
+      font-weight: 800;
+      text-align: center;
+      padding: 30px;
+      margin: 20px 0;
+      border-radius: 20px;
+      animation: bounceIn 1s;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+    
+    @keyframes bounceIn {
+      0% { transform: scale(0.3); opacity: 0; }
+      50% { transform: scale(1.05); }
+      70% { transform: scale(0.9); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    
+    .legend-up { 
+      background: linear-gradient(135deg, #28a745, #20c997); 
+      color: white; 
+    }
+    
+    .legend-down { 
+      background: linear-gradient(135deg, #dc3545, #fd7e14); 
+      color: white; 
+    }
+    
+    .penalty-warning { 
+      color: #dc3545; 
+      font-weight: 700; 
+      background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+      padding: 15px;
+      border-radius: 10px;
+      display: inline-block;
+      margin: 15px 0;
+      border-left: 4px solid #dc3545;
+      font-size: 1rem;
+    }
+    
+    .penalty-counter {
+      background: #fff3cd;
+      color: #856404;
+      padding: 10px 20px;
+      border-radius: 10px;
+      display: inline-block;
+      margin: 10px 0;
+      font-weight: 600;
+      border: 2px solid #ffc107;
+    }
+    
+    /* Info Box */
+    .info-box {
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      padding: 20px;
+      border-radius: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #2196f3;
+      box-shadow: 0 3px 10px rgba(33, 150, 243, 0.2);
+    }
+    
+    .info-box ul {
+      padding-left: 25px;
+      line-height: 1.8;
+      margin-top: 10px;
+    }
+    
+    .info-box li {
+      margin: 8px 0;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body { padding: 10px; }
+      #container { padding: 20px 15px; margin: 10px auto; }
+      .school-logo { width: 160px; height: 160px; }
+      .header-banner h1 { font-size: 1.6rem; }
+      .header-banner p { font-size: 1rem; }
+      h2 { font-size: 1.5rem; }
+      #timer { font-size: 26px; padding: 10px 20px; }
+      button { width: 100%; max-width: 350px; margin: 15px auto; }
+      .question { padding: 18px; }
+    }
+    
+    @media (max-width: 480px) {
+      .school-logo { width: 140px; height: 140px; }
+      .header-banner { padding: 15px; }
+      .legend-message { font-size: 22px; padding: 20px; }
+      #loginSection input, #loginSection select { max-width: 100%; }
+    }
+    
+    /* Print Styles */
+    @media print {
+      body { background: white; }
+      #container { box-shadow: none; border: 2px solid #ddd; }
+      button { display: none; }
+      .header-banner { background: #f8f9fa; color: #333; }
+    }
+    
+    /* Progress Bar */
+    .progress-container {
+      width: 100%;
+      background: #e9ecef;
+      border-radius: 10px;
+      margin: 15px 0;
+      overflow: hidden;
+    }
+    
+    .progress-bar {
+      height: 10px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      width: 0%;
+      transition: width 0.3s ease;
+      border-radius: 10px;
+    }
+    
+    /* Warning Modal */
+    .warning-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      animation: fadeIn 0.3s;
+    }
+    
+    .warning-content {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 500px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    
+    .warning-icon {
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <!-- SCHOOL LOGO - Appears on ALL pages -->
+    <img src="images/ELIKEN SCHOOL LOGO.jpg" alt="Eliken Secondary School Logo" class="school-logo" id="schoolImage" onerror="this.style.display='none'; document.getElementById('logoPlaceholder').style.display='flex';">
+   
+    
+    <!-- HEADER BANNER -->
+    <div class="header-banner">
+      <h1>🖥️ Eliken Secondary School</h1>
+      <p>Computer Studies Online Examination</p>
+    </div>
+
+    <!-- LOGIN SECTION -->
+    <div id="loginSection">
+      <h2>Student Registration</h2>
+      <p style="margin:15px 0; color:#555; font-size:1rem;">Please enter your details to begin the examination</p>
+      
+      <label for="fname">First Name:</label>
+      <input type="text" id="fname" placeholder="Enter your first name" required autocomplete="off">
+      
+      <label for="lname">Surname:</label>
+      <input type="text" id="lname" placeholder="Enter your surname" required autocomplete="off">
+      
+      <label for="studentClass">Select Your Class:</label>
+      <select id="studentClass" required>
+        <option value="">-- Choose your class --</option>
+        <option value="JSS3">JSS 3</option>
+        <option value="SS1">SS 1</option>
+        <option value="SS2">SS 2</option>
+        <option value="SS3">SS 3</option>
+      </select>
+      
+      <!-- GOOD LUCK MESSAGE -->
+      <div class="good-luck-message">
+        🍀 Good Luck in Your Test! 🍀
+      </div>
+      
+      <div style="margin-top:25px;">
+        <button onclick="startExam()">Start Examination</button>
+      </div>
+      
+      <div class="info-box" style="margin-top:25px;">
+        <p style="font-weight:700; margin-bottom:10px; color:#2c3e50;">📋 Exam Instructions:</p>
+        <ul style="padding-left:25px;">
+          <li><strong>30 Questions</strong> (Randomized from 60+ question bank)</li>
+          <li><strong>Time:</strong> 45 minutes</li>
+          <li><strong>Total Marks:</strong> 15 marks (0.5 per question)</li>
+          <li><strong>⚠️ Penalty:</strong> -2 marks for each tab switch/minimize</li>
+          <li><strong>🚫 Do NOT</strong> leave this page or minimize the browser</li>
+          <li><strong>✅ Passing Mark:</strong> 8/15 (50%+)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXAM SECTION -->
+    <div id="examSection" class="hidden">
+      <div style="text-align:center; margin-bottom:20px;">
+        <h3>⏱️ Time Remaining: <span id="timer">45:00</span></h3>
+        <p style="margin-top:10px; color:#555; font-size:1rem;"><strong>Total Marks: 15</strong> (30 Questions × 0.5 marks each)</p>
+        <p id="classIndicator" style="margin-top:8px; font-weight:700; color:#667eea; font-size:1.1rem;"></p>
+        <div id="penaltyDisplay" class="penalty-counter hidden">⚠️ Tab Switches: <span id="penaltyCount">0</span> (-<span id="penaltyMarks">0</span> marks)</div>
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <p style="font-size:0.9rem; color:#667eea; margin-top:5px;">Progress: <span id="progressText">0</span>/30 questions answered</p>
+      </div>
+      
+      <h3>📝 Objective Questions (Answer ALL 30 questions)</h3>
+      <p style="margin-bottom:20px; color:#555; font-size:0.95rem;">
+        <em>📌 Questions are randomized for your class (<span id="questionClassLabel"></span>). Each question carries 0.5 marks. Select the correct option (A, B, C, or D).</em>
+      </p>
+      <div id="objContainer"></div>
+
+      <div style="text-align:center; margin-top:30px;">
+        <button onclick="submitExam()" id="submitBtn">Submit Examination</button>
+      </div>
+      
+      <div class="info-box" style="margin-top:25px; background: linear-gradient(135deg, #fff3cd, #ffeaa7); border-left-color: #ffc107;">
+        <p style="font-weight:700; color:#856404;">⚠️ Warning: Leaving this page or minimizing the browser will result in a <strong>-2 marks penalty</strong> per occurrence!</p>
+      </div>
+    </div>
+
+    <!-- RESULT SECTION -->
+    <div id="resultSection" class="hidden">
+      <h2 style="color:#28a745; border-bottom-color:#28a745;">✅ Examination Submitted Successfully</h2>
+      <p style="margin:20px 0; font-size:1.2rem; text-align:center;">Your answers have been recorded and saved.</p>
+      
+      <div id="finalScore" class="score-display"></div>
+      
+      <!-- Motivational messages based on score -->
+      <div id="legendMessage" class="legend-message hidden"></div>
+      
+      <div class="info-box">
+        <p style="font-weight:700; margin-bottom:12px; color:#2c3e50;">📝 Important Information:</p>
+        <ul>
+          <li>Exam automatically scored out of <strong>15 marks</strong></li>
+          <li>Passing mark: <strong>8/15</strong> (50%+)</li>
+          <li>Penalties applied for tab switching: <strong id="finalPenalty">0 marks</strong></li>
+          <li>Results saved to school database</li>
+          <li>Contact Master Vincent for inquiries</li>
+        </ul>
+      </div>
+      
+      <div style="text-align:center; margin-top:30px;">
+        <button onclick="location.reload()">Return to Login</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const loginSection = document.getElementById('loginSection');
+    const examSection = document.getElementById('examSection');
+    const resultSection = document.getElementById('resultSection');
+    const timerDisplay = document.getElementById('timer');
+    const finalScoreDisplay = document.getElementById('finalScore');
+    const legendMessageDiv = document.getElementById('legendMessage');
+    const classIndicator = document.getElementById('classIndicator');
+    const questionClassLabel = document.getElementById('questionClassLabel');
+    const penaltyDisplay = document.getElementById('penaltyDisplay');
+    const penaltyCount = document.getElementById('penaltyCount');
+    const penaltyMarks = document.getElementById('penaltyMarks');
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+
+    let timeLeft = 45 * 60; // 45 minutes
+    let cheatingCount = 0;
+    const CHEATING_PENALTY_PER_INCIDENT = 2; // -2 marks per tab switch
+    let timerInterval;
+    let selectedQuestions = [];
+    let studentFname = '';
+    let studentLname = '';
+    let studentClass = '';
+
+    // ========================================================
+    // QUESTION BANK - 60+ QUESTIONS PER CLASS
+    // ========================================================
+    
+    const questionBank = {
+      // ==================== JSS3 TOPICS ====================
+      JSS3: [
+        // Internet (15 questions)
+        { q: "What does the Internet allow computers to do?", a: ["Play music only", "Communicate and share information globally", "Print documents", "Store files locally"], correct: "B", topic: "Internet" },
+        { q: "Which device is needed to connect to the Internet?", a: ["Printer", "Modem or Router", "Scanner", "Speaker"], correct: "B", topic: "Internet" },
+        { q: "What is an Internet Service Provider (ISP)?", a: ["A computer game", "A company that provides Internet access", "A type of virus", "A software application"], correct: "B", topic: "Internet" },
+        { q: "Which of these is a web browser?", a: ["Microsoft Word", "Google Chrome", "Adobe Photoshop", "Windows Media Player"], correct: "B", topic: "Internet" },
+        { q: "What does WWW stand for?", a: ["World Wide Web", "World Web Wide", "Web World Wide", "Wide World Web"], correct: "A", topic: "Internet" },
+        { q: "What is a website?", a: ["A computer program", "A collection of web pages", "A type of virus", "A hardware device"], correct: "B", topic: "Internet" },
+        { q: "Which protocol is used for secure web browsing?", a: ["HTTP", "HTTPS", "FTP", "SMTP"], correct: "B", topic: "Internet" },
+        { q: "What is an email?", a: ["A physical letter", "Electronic mail sent over the Internet", "A type of virus", "A computer game"], correct: "B", topic: "Internet" },
+        { q: "Which symbol is used in email addresses?", a: ["#", "$", "@", "&"], correct: "C", topic: "Internet" },
+        { q: "What is a URL?", a: ["Universal Resource Locator", "Uniform Resource Locator", "United Resource Link", "Universal Reference Link"], correct: "B", topic: "Internet" },
+        { q: "What does 'online' mean?", a: ["Disconnected from Internet", "Connected to the Internet", "Offline mode", "Printing mode"], correct: "B", topic: "Internet" },
+        { q: "Which of these is a search engine?", a: ["Microsoft Excel", "Google", "Adobe Reader", "VLC Player"], correct: "B", topic: "Internet" },
+        { q: "What is downloading?", a: ["Sending files to Internet", "Receiving files from Internet", "Deleting files", "Printing files"], correct: "B", topic: "Internet" },
+        { q: "What is uploading?", a: ["Receiving files from Internet", "Sending files to Internet", "Deleting files", "Copying files"], correct: "B", topic: "Internet" },
+        { q: "What is a hyperlink?", a: ["A type of virus", "A clickable link to another webpage", "A computer cable", "A software program"], correct: "B", topic: "Internet" },
+        
+        // Digital Divide (10 questions)
+        { q: "What is the digital divide?", a: ["A type of computer cable", "Gap between those with and without technology access", "A computer game", "A software program"], correct: "B", topic: "Digital Divide" },
+        { q: "Which factor contributes to the digital divide?", a: ["Equal education", "Economic inequality", "Same internet speed", "Universal access"], correct: "B", topic: "Digital Divide" },
+        { q: "The digital divide can exist between:", a: ["Only countries", "Rich and poor, urban and rural", "Only schools", "Only companies"], correct: "B", topic: "Digital Divide" },
+        { q: "How can the digital divide be reduced?", a: ["By increasing costs", "By providing affordable technology and training", "By limiting access", "By removing computers"], correct: "B", topic: "Digital Divide" },
+        { q: "Which group is most affected by the digital divide?", a: ["Wealthy urban residents", "Poor rural communities", "Computer programmers", "Internet providers"], correct: "B", topic: "Digital Divide" },
+        { q: "Digital literacy helps to:", a: ["Increase the digital divide", "Bridge the digital divide", "Create more divide", "Ignore technology"], correct: "B", topic: "Digital Divide" },
+        { q: "What is a consequence of the digital divide?", a: ["Equal opportunities", "Unequal access to information and opportunities", "Better education for all", "Same income levels"], correct: "B", topic: "Digital Divide" },
+        { q: "Which is a solution to digital divide?", a: ["Computer literacy programs", "Removing schools", "Increasing prices", "Limiting internet"], correct: "A", topic: "Digital Divide" },
+        { q: "The digital divide affects access to:", a: ["Only games", "Education, healthcare, and jobs", "Only entertainment", "Only social media"], correct: "B", topic: "Digital Divide" },
+        { q: "Government can help reduce digital divide by:", a: ["Ignoring technology", "Providing public internet access points", "Increasing taxes", "Closing schools"], correct: "B", topic: "Digital Divide" },
+        
+        // Digital Literacy (10 questions)
+        { q: "What is digital literacy?", a: ["Ability to read books", "Ability to use digital technology effectively", "Ability to write code only", "Ability to play games"], correct: "B", topic: "Digital Literacy" },
+        { q: "Which is a digital literacy skill?", a: ["Cooking", "Finding and evaluating online information", "Driving", "Swimming"], correct: "B", topic: "Digital Literacy" },
+        { q: "Why is digital literacy important?", a: ["It's not important", "For success in modern society", "Only for gamers", "Only for teachers"], correct: "B", topic: "Digital Literacy" },
+        { q: "Digital literacy includes knowing how to:", a: ["Only play games", "Stay safe online and protect privacy", "Only watch videos", "Only send emails"], correct: "B", topic: "Digital Literacy" },
+        { q: "Which is NOT a digital literacy skill?", a: ["Using search engines", "Evaluating online sources", "Physical farming", "Creating digital content"], correct: "C", topic: "Digital Literacy" },
+        { q: "Digital citizenship means:", a: ["Being a citizen of a country", "Responsible and ethical use of technology", "Only using computers", "Only playing online games"], correct: "B", topic: "Digital Literacy" },
+        { q: "Cyberbullying is:", a: ["A type of computer", "Using technology to harass or threaten someone", "A good behavior", "A software program"], correct: "B", topic: "Digital Literacy" },
+        { q: "To protect privacy online, you should:", a: ["Share all information", "Use strong passwords and be careful what you share", "Use same password everywhere", "Share passwords with friends"], correct: "B", topic: "Digital Literacy" },
+        { q: "Fake news is:", a: ["True information", "False or misleading information", "Only entertainment", "Only advertisements"], correct: "B", topic: "Digital Literacy" },
+        { q: "Digital footprint refers to:", a: ["Your shoe size", "Trace of your online activities", "A computer virus", "A type of software"], correct: "B", topic: "Digital Literacy" },
+        
+        // Hardware and Software (15 questions)
+        { q: "What is hardware?", a: ["Computer programs", "Physical parts of a computer", "Internet connection", "Data files"], correct: "B", topic: "Hardware" },
+        { q: "Which is an example of hardware?", a: ["Microsoft Word", "Keyboard", "Windows OS", "Web browser"], correct: "B", topic: "Hardware" },
+        { q: "What is software?", a: ["Physical computer parts", "Programs that run on a computer", "Computer cables", "Monitor screen"], correct: "B", topic: "Software" },
+        { q: "Which is an example of software?", a: ["Mouse", "Microsoft Excel", "Printer", "CPU"], correct: "B", topic: "Software" },
+        { q: "The brain of the computer is the:", a: ["Monitor", "CPU (Central Processing Unit)", "Keyboard", "Mouse"], correct: "B", topic: "Hardware" },
+        { q: "Which device is used for typing?", a: ["Monitor", "Keyboard", "Printer", "Speaker"], correct: "B", topic: "Hardware" },
+        { q: "Which device displays output?", a: ["Keyboard", "Mouse", "Monitor", "CPU"], correct: "C", topic: "Hardware" },
+        { q: "What is an input device?", a: ["Device that shows output", "Device that sends data to computer", "Device that stores data", "Device that prints"], correct: "B", topic: "Hardware" },
+        { q: "Which is an output device?", a: ["Keyboard", "Mouse", "Printer", "Scanner"], correct: "C", topic: "Hardware" },
+        { q: "RAM stands for:", a: ["Read Access Memory", "Random Access Memory", "Run All Memory", "Ready Access Module"], correct: "B", topic: "Hardware" },
+        { q: "Which memory is volatile?", a: ["Hard Drive", "RAM", "ROM", "Flash Drive"], correct: "B", topic: "Hardware" },
+        { q: "Operating system is an example of:", a: ["Hardware", "System Software", "Input Device", "Output Device"], correct: "B", topic: "Software" },
+        { q: "Which is application software?", a: ["Windows", "Microsoft Word", "Linux", "macOS"], correct: "B", topic: "Software" },
+        { q: "Storage devices include all EXCEPT:", a: ["Hard Drive", "CPU", "USB Drive", "CD-ROM"], correct: "B", topic: "Hardware" },
+        { q: "The main circuit board is called:", a: ["CPU", "Motherboard", "RAM", "Power Supply"], correct: "B", topic: "Hardware" },
+        
+        // Data and Information (10 questions)
+        { q: "What is data?", a: ["Processed facts", "Raw unprocessed facts", "Computer programs", "Hardware devices"], correct: "B", topic: "Data" },
+        { q: "Information is:", a: ["Raw facts", "Processed data with meaning", "Computer hardware", "Software programs"], correct: "B", topic: "Information" },
+        { q: "Which is an example of data?", a: ["A report card", "The number 85", "A graph", "A summary"], correct: "B", topic: "Data" },
+        { q: "Which is an example of information?", a: ["Raw numbers", "A report showing average score", "Unorganized facts", "Random characters"], correct: "B", topic: "Information" },
+        { q: "Data processing converts data into:", a: ["More data", "Information", "Hardware", "Software"], correct: "B", topic: "Data" },
+        { q: "Good information should be:", a: ["Inaccurate", "Accurate and timely", "Outdated", "Incomplete"], correct: "B", topic: "Information" },
+        { q: "Which is a source of data?", a: ["Guessing", "Surveys and observations", "Ignoring facts", "Deleting records"], correct: "B", topic: "Data" },
+        { q: "Data can be represented as:", a: ["Only text", "Numbers, text, images, sounds", "Only numbers", "Only videos"], correct: "B", topic: "Data" },
+        { q: "The smallest unit of data is:", a: ["Byte", "Bit", "Kilobyte", "Megabyte"], correct: "B", topic: "Data" },
+        { q: "8 bits make one:", a: ["Bit", "Byte", "Kilobyte", "Megabyte"], correct: "B", topic: "Data" }
+      ],
+      
+      // ==================== SS1 TOPICS ====================
+      SS1: [
+        // World Wide Web (15 questions)
+        { q: "Who invented the World Wide Web?", a: ["Bill Gates", "Tim Berners-Lee", "Steve Jobs", "Mark Zuckerberg"], correct: "B", topic: "WWW" },
+        { q: "In what year was the WWW invented?", a: ["1980", "1989", "1995", "2000"], correct: "B", topic: "WWW" },
+        { q: "WWW runs on which protocol?", a: ["FTP", "HTTP/HTTPS", "SMTP", "TCP"], correct: "B", topic: "WWW" },
+        { q: "A web page is written in which language?", a: ["Python", "HTML", "Java", "C++"], correct: "B", topic: "WWW" },
+        { q: "What is a homepage?", a: ["Last page of website", "Main page of a website", "A type of virus", "A computer game"], correct: "B", topic: "WWW" },
+        { q: "Which organization maintains web standards?", a: ["W3C (World Wide Web Consortium)", "WHO", "UNESCO", "FIFA"], correct: "A", topic: "WWW" },
+        { q: "What is a web server?", a: ["A computer game", "Computer that hosts websites", "A type of browser", "A virus"], correct: "B", topic: "WWW" },
+        { q: "HTML stands for:", a: ["High Text Markup Language", "HyperText Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"], correct: "B", topic: "WWW" },
+        { q: "What is a domain name?", a: ["Computer hardware", "Website address (e.g., google.com)", "A type of software", "A computer virus"], correct: "B", topic: "WWW" },
+        { q: "Which is a top-level domain?", a: [".com", ".txt", ".exe", ".doc"], correct: "A", topic: "WWW" },
+        { q: "What is a hyperlink?", a: ["A computer cable", "Clickable link to another page", "A type of virus", "A software program"], correct: "B", topic: "WWW" },
+        { q: "CSS is used for:", a: ["Database management", "Styling web pages", "Creating viruses", "Playing games"], correct: "B", topic: "WWW" },
+        { q: "JavaScript is used to:", a: ["Style web pages", "Add interactivity to websites", "Create databases", "Design logos"], correct: "B", topic: "WWW" },
+        { q: "What is a web browser's main function?", a: ["Create websites", "Display and navigate web pages", "Store databases", "Edit videos"], correct: "B", topic: "WWW" },
+        { q: "Which is NOT a web browser?", a: ["Chrome", "Microsoft Word", "Firefox", "Safari"], correct: "B", topic: "WWW" },
+        
+        // Hardware and Software (15 questions)
+        { q: "Which component stores data permanently?", a: ["RAM", "Hard Drive", "CPU", "Cache"], correct: "B", topic: "Hardware" },
+        { q: "GPU stands for:", a: ["General Processing Unit", "Graphics Processing Unit", "Global Positioning Unit", "Game Playing Unit"], correct: "B", topic: "Hardware" },
+        { q: "Which is system software?", a: ["Microsoft Word", "Windows OS", "Google Chrome", "Adobe Photoshop"], correct: "B", topic: "Software" },
+        { q: "BIOS is stored in:", a: ["RAM", "ROM", "Hard Drive", "CPU"], correct: "B", topic: "Hardware" },
+        { q: "Which port is used for network connection?", a: ["USB", "Ethernet (RJ45)", "HDMI", "Audio Jack"], correct: "B", topic: "Hardware" },
+        { q: "SSD is faster than:", a: ["RAM", "HDD (Hard Disk Drive)", "CPU", "Cache"], correct: "B", topic: "Hardware" },
+        { q: "Which software manages computer hardware?", a: ["Application Software", "Operating System", "Web Browser", "Game Software"], correct: "B", topic: "Software" },
+        { q: "Device drivers are:", a: ["People who drive", "Software that controls hardware", "Computer games", "Viruses"], correct: "B", topic: "Software" },
+        { q: "Which is a pointing device?", a: ["Keyboard", "Mouse", "Monitor", "Printer"], correct: "B", topic: "Hardware" },
+        { q: "Resolution of monitor is measured in:", a: ["Inches", "Pixels", "Bytes", "Hertz"], correct: "B", topic: "Hardware" },
+        { q: "Which memory is fastest?", a: ["Hard Drive", "Cache Memory", "RAM", "ROM"], correct: "B", topic: "Hardware" },
+        { q: "Open source software means:", a: ["Expensive software", "Source code is available to modify", "Closed software", "Virus software"], correct: "B", topic: "Software" },
+        { q: "Which is proprietary software?", a: ["Linux", "Microsoft Windows", "Apache", "Python"], correct: "B", topic: "Software" },
+        { q: "Firmware is stored in:", a: ["Hard Drive", "ROM/Flash Memory", "RAM", "CPU"], correct: "B", topic: "Software" },
+        { q: "Which device converts analog to digital?", a: ["Speaker", "Scanner", "Monitor", "Printer"], correct: "B", topic: "Hardware" },
+        
+        // Data and Information (10 questions)
+        { q: "Data becomes information when it is:", a: ["Stored", "Processed and organized", "Deleted", "Ignored"], correct: "B", topic: "Data" },
+        { q: "Which is qualitative data?", a: ["Numbers", "Descriptions and opinions", "Measurements", "Calculations"], correct: "B", topic: "Data" },
+        { q: "Which is quantitative data?", a: ["Colors", "Numbers and measurements", "Opinions", "Descriptions"], correct: "B", topic: "Data" },
+        { q: "A database is used to:", a: ["Play games", "Store and organize data", "Edit videos", "Browse internet"], correct: "B", topic: "Data" },
+        { q: "Primary data is collected:", a: ["From books", "Directly from source", "From internet", "From friends"], correct: "B", topic: "Data" },
+        { q: "Secondary data is:", a: ["Collected firsthand", "Already existing data", "New data", "Raw data"], correct: "B", topic: "Data" },
+        { q: "Data validation ensures:", a: ["Data is deleted", "Data is accurate and complete", "Data is hidden", "Data is encrypted"], correct: "B", topic: "Data" },
+        { q: "A field in a database is:", a: ["A row", "A column", "A table", "A query"], correct: "B", topic: "Data" },
+        { q: "A record in a database is:", a: ["A column", "A row", "A table", "A query"], correct: "B", topic: "Data" },
+        { q: "Big Data refers to:", a: ["Small datasets", "Extremely large datasets", "Single files", "Text documents"], correct: "B", topic: "Data" },
+        
+        // Behaviours in Computer Room (10 questions)
+        { q: "In the computer room, you should:", a: ["Eat and drink", "Keep quiet and follow rules", "Run around", "Shout loudly"], correct: "B", topic: "Computer Room" },
+        { q: "Before using a computer, you should:", a: ["Wash and dry your hands", "Eat food", "Drink water", "Run around"], correct: "A", topic: "Computer Room" },
+        { q: "If you notice a problem with a computer, you should:", a: ["Ignore it", "Report to the teacher", "Fix it yourself", "Break it more"], correct: "B", topic: "Computer Room" },
+        { q: "Personal belongings should be:", a: ["Left on computers", "Kept in designated areas", "Scattered around", "Taken home"], correct: "B", topic: "Computer Room" },
+        { q: "Computer room rules are made to:", a: ["Punish students", "Ensure safety and proper use", "Make learning difficult", "Waste time"], correct: "B", topic: "Computer Room" },
+        { q: "You should log off when:", a: ["Never", "Finished using the computer", "Teacher is not looking", "Computer is slow"], correct: "B", topic: "Computer Room" },
+        { q: "Unauthorized software installation is:", a: ["Allowed", "Not allowed", "Encouraged", "Required"], correct: "B", topic: "Computer Room" },
+        { q: "Cables and wires should be:", a: ["Pulled and twisted", "Left undisturbed", "Cut", "Removed"], correct: "B", topic: "Computer Room" },
+        { q: "Emergency exits in computer room should be:", a: ["Blocked", "Kept clear", "Locked", "Hidden"], correct: "B", topic: "Computer Room" },
+        { q: "Fire extinguishers should be:", a: ["Hidden", "Accessible and visible", "Removed", "Locked away"], correct: "B", topic: "Computer Room" },
+        
+        // Internet (10 questions)
+        { q: "Internet stands for:", a: ["Internal Network", "Interconnected Network", "International Net", "Internal Net"], correct: "B", topic: "Internet" },
+        { q: "Which device connects multiple computers?", a: ["Monitor", "Router/Switch", "Keyboard", "Mouse"], correct: "B", topic: "Internet" },
+        { q: "IP address is used for:", a: ["Printing", "Identifying devices on network", "Playing games", "Storing files"], correct: "B", topic: "Internet" },
+        { q: "Wi-Fi uses:", a: ["Cables", "Radio waves", "Light", "Sound"], correct: "B", topic: "Internet" },
+        { q: "Bandwidth refers to:", a: ["Physical width", "Data transfer capacity", "Number of users", "Cost of internet"], correct: "B", topic: "Internet" },
+        { q: "Cloud storage means:", a: ["Storage in the sky", "Storage on remote servers", "Local storage", "USB storage"], correct: "B", topic: "Internet" },
+        { q: "Which is a social media platform?", a: ["Microsoft Word", "Facebook", "Adobe Photoshop", "Windows OS"], correct: "B", topic: "Internet" },
+        { q: "E-commerce means:", a: ["Electronic games", "Buying/selling online", "Email only", "Electronic waste"], correct: "B", topic: "Internet" },
+        { q: "Cybersecurity protects:", a: ["Physical buildings", "Digital systems and data", "Computer hardware only", "Internet cables"], correct: "B", topic: "Internet" },
+        { q: "Two-factor authentication adds:", a: ["Less security", "Extra security layer", "No security", "Slower access"], correct: "B", topic: "Internet" }
+      ],
+      
+      // ==================== SS2 TOPICS ====================
+      SS2: [
+        // Web Structure (15 questions)
+        { q: "Web structure refers to:", a: ["Computer hardware", "How websites are organized", "Internet cables", "Software programs"], correct: "B", topic: "Web Structure" },
+        { q: "A website hierarchy typically has:", a: ["No structure", "Homepage, sections, pages", "Only one page", "Random pages"], correct: "B", topic: "Web Structure" },
+        { q: "Navigation menu helps users to:", a: ["Get lost", "Find content easily", "Delete pages", "Create viruses"], correct: "B", topic: "Web Structure" },
+        { q: "Breadcrumbs in web design show:", a: ["Food items", "User's location in site", "Computer errors", "Virus warnings"], correct: "B", topic: "Web Structure" },
+        { q: "A sitemap is:", a: ["Map of city", "List of all website pages", "Computer game", "Software program"], correct: "B", topic: "Web Structure" },
+        { q: "Internal links connect:", a: ["Different websites", "Pages within same website", "Computers", "Printers"], correct: "B", topic: "Web Structure" },
+        { q: "External links connect to:", a: ["Same website", "Different websites", "Local files", "Printers"], correct: "B", topic: "Web Structure" },
+        { q: "Responsive web design means:", a: ["Fast loading", "Adapts to different screen sizes", "Colorful design", "Expensive design"], correct: "B", topic: "Web Structure" },
+        { q: "A landing page is:", a: ["Last page", "First page visitors see", "Error page", "Login page"], correct: "B", topic: "Web Structure" },
+        { q: "Call-to-action (CTA) is:", a: ["Phone call", "Button prompting user action", "Email", "Advertisement"], correct: "B", topic: "Web Structure" },
+        { q: "Footer of a website contains:", a: ["Main content", "Contact info, links, copyright", "Advertisements only", "Games"], correct: "B", topic: "Web Structure" },
+        { q: "Header of a website typically has:", a: ["Footer links", "Logo, navigation, search", "Advertisements", "Games"], correct: "B", topic: "Web Structure" },
+        { q: "URL structure should be:", a: ["Complicated", "Simple and descriptive", "Random", "Hidden"], correct: "B", topic: "Web Structure" },
+        { q: "404 error means:", a: ["Success", "Page not found", "Server error", "Login required"], correct: "B", topic: "Web Structure" },
+        { q: "SEO helps websites to:", a: ["Load slower", "Rank higher in search results", "Display errors", "Crash browsers"], correct: "B", topic: "Web Structure" },
+        
+        // WWW (10 questions)
+        { q: "WWW was invented at:", a: ["MIT", "CERN", "NASA", "Google"], correct: "B", topic: "WWW" },
+        { q: "First web browser was called:", a: ["Chrome", "WorldWideWeb", "Firefox", "Internet Explorer"], correct: "B", topic: "WWW" },
+        { q: "HTTP stands for:", a: ["HyperText Transfer Protocol", "High Transfer Text Protocol", "Home Tool Transfer Protocol", "Hyperlink Text Transfer Process"], correct: "A", topic: "WWW" },
+        { q: "HTTPS uses encryption for:", a: ["Faster loading", "Security", "Better design", "More colors"], correct: "B", topic: "WWW" },
+        { q: "Web 2.0 is characterized by:", a: ["Static pages", "User-generated content", "No interaction", "Text only"], correct: "B", topic: "WWW" },
+        { q: "A web application runs on:", a: ["Desktop only", "Browser", "Printer", "Scanner"], correct: "B", topic: "WWW" },
+        { q: "Cookies in browsers are used for:", a: ["Eating", "Storing user preferences", "Deleting data", "Speeding up internet"], correct: "B", topic: "WWW" },
+        { q: "Cache in browsers helps to:", a: ["Slow down loading", "Speed up page loading", "Delete history", "Block websites"], correct: "B", topic: "WWW" },
+        { q: "A plugin extends browser:", a: ["Size", "Functionality", "Cost", "Weight"], correct: "B", topic: "WWW" },
+        { q: "Web accessibility ensures:", a: ["Only rich people use web", "Everyone can use websites", "Only experts use web", "Websites are expensive"], correct: "B", topic: "WWW" },
+        
+        // Internet (10 questions)
+        { q: "Internet protocol suite is also called:", a: ["OSI Model", "TCP/IP", "HTTP", "FTP"], correct: "B", topic: "Internet" },
+        { q: "DNS stands for:", a: ["Domain Name System", "Digital Network Service", "Data Network System", "Domain Network Server"], correct: "A", topic: "Internet" },
+        { q: "DNS converts domain names to:", a: ["IP addresses", "Email addresses", "Passwords", "Usernames"], correct: "A", topic: "Internet" },
+        { q: "ISP stands for:", a: ["Internet Service Provider", "Internal Service Protocol", "International Service Provider", "Internet Security Protocol"], correct: "A", topic: "Internet" },
+        { q: "Fiber optic internet uses:", a: ["Copper wires", "Light signals", "Radio waves", "Sound waves"], correct: "B", topic: "Internet" },
+        { q: "Latency in internet refers to:", a: ["Speed", "Delay in data transmission", "Cost", "Security"], correct: "B", topic: "Internet" },
+        { q: "Broadband means:", a: ["Narrow bandwidth", "Wide bandwidth", "No bandwidth", "Single bandwidth"], correct: "B", topic: "Internet" },
+        { q: "IoT stands for:", a: ["Internet of Things", "Internet of Technology", "Internal of Things", "International of Technology"], correct: "A", topic: "Internet" },
+        { q: "VPN is used for:", a: ["Faster internet", "Secure private connection", "Free internet", "Gaming only"], correct: "B", topic: "Internet" },
+        { q: "Packet switching is used in:", a: ["Telephone networks", "Internet", "Radio", "Television"], correct: "B", topic: "Internet" },
+        
+        // Storage (15 questions)
+        { q: "Primary storage includes:", a: ["Hard Drive", "RAM", "USB Drive", "CD-ROM"], correct: "B", topic: "Storage" },
+        { q: "Secondary storage is:", a: ["Volatile", "Non-volatile", "Temporary", "Fastest"], correct: "B", topic: "Storage" },
+        { q: "Which has largest capacity?", a: ["RAM", "Hard Drive", "Cache", "Register"], correct: "B", topic: "Storage" },
+        { q: "SSD uses:", a: ["Magnetic disks", "Flash memory", "Optical discs", "Tape"], correct: "B", topic: "Storage" },
+        { q: "Cloud storage examples include:", a: ["Hard Drive", "Google Drive", "RAM", "CPU"], correct: "B", topic: "Storage" },
+        { q: "RAID is used for:", a: ["Gaming", "Data redundancy and performance", "Printing", "Networking"], correct: "B", topic: "Storage" },
+        { q: "Optical storage uses:", a: ["Magnetism", "Lasers", "Electricity", "Sound"], correct: "B", topic: "Storage" },
+        { q: "Which is portable storage?", a: ["Internal HDD", "USB Flash Drive", "RAM", "CPU"], correct: "B", topic: "Storage" },
+        { q: "1 TB equals:", a: ["1000 MB", "1024 GB", "100 GB", "10 GB"], correct: "B", topic: "Storage" },
+        { q: "Magnetic tape is used for:", a: ["Daily backup", "Long-term archival", "Gaming", "Web browsing"], correct: "B", topic: "Storage" },
+        { q: "NVMe is faster than:", a: ["RAM", "SATA SSD", "Cache", "CPU"], correct: "B", topic: "Storage" },
+        { q: "Hybrid drive combines:", a: ["SSD and HDD", "RAM and ROM", "CPU and GPU", "Monitor and Keyboard"], correct: "A", topic: "Storage" },
+        { q: "File system manages:", a: ["Hardware", "How data is stored and retrieved", "Internet connection", "Software installation"], correct: "B", topic: "Storage" },
+        { q: "NTFS is a file system for:", a: ["Linux", "Windows", "Mac", "Android"], correct: "B", topic: "Storage" },
+        { q: "Formatting a drive:", a: ["Increases capacity", "Erases all data", "Speeds up internet", "Installs software"], correct: "B", topic: "Storage" },
+        
+        // Occupation in Computer Science (10 questions)
+        { q: "A software developer:", a: ["Repairs hardware", "Creates software applications", "Manages networks", "Designs buildings"], correct: "B", topic: "Occupations" },
+        { q: "A network administrator:", a: ["Writes code", "Manages computer networks", "Designs websites", "Tests software"], correct: "B", topic: "Occupations" },
+        { q: "A data scientist analyzes:", a: ["Hardware", "Large datasets", "Networks", "Websites"], correct: "B", topic: "Occupations" },
+        { q: "A cybersecurity analyst protects:", a: ["Buildings", "Digital systems from threats", "Networks only", "Hardware only"], correct: "B", topic: "Occupations" },
+        { q: "A database administrator manages:", a: ["Websites", "Databases", "Networks", "Hardware"], correct: "B", topic: "Occupations" },
+        { q: "A web developer creates:", a: ["Hardware", "Websites and web applications", "Networks", "Databases"], correct: "B", topic: "Occupations" },
+        { q: "A system analyst:", a: ["Repairs computers", "Analyzes and designs IT solutions", "Writes code only", "Manages databases"], correct: "B", topic: "Occupations" },
+        { q: "A computer engineer designs:", a: ["Software only", "Computer hardware and systems", "Websites", "Networks"], correct: "B", topic: "Occupations" },
+        { q: "An IT support specialist:", a: ["Creates software", "Helps users with technical issues", "Designs networks", "Analyzes data"], correct: "B", topic: "Occupations" },
+        { q: "A cloud architect designs:", a: ["Buildings", "Cloud computing systems", "Networks", "Databases"], correct: "B", topic: "Occupations" }
+      ],
+      
+      // ==================== SS3 TOPICS ====================
+      SS3: [
+        // Number Base (20 questions)
+        { q: "Binary number system uses base:", a: ["2", "8", "10", "16"], correct: "A", topic: "Number Base" },
+        { q: "Decimal number system uses base:", a: ["2", "8", "10", "16"], correct: "C", topic: "Number Base" },
+        { q: "Octal number system uses base:", a: ["2", "8", "10", "16"], correct: "B", topic: "Number Base" },
+        { q: "Hexadecimal uses base:", a: ["2", "8", "10", "16"], correct: "D", topic: "Number Base" },
+        { q: "Binary 1010 in decimal is:", a: ["8", "10", "12", "14"], correct: "B", topic: "Number Base" },
+        { q: "Decimal 15 in binary is:", a: ["1111", "1010", "1100", "1001"], correct: "A", topic: "Number Base" },
+        { q: "Binary addition: 1 + 1 =", a: ["1", "2", "10", "11"], correct: "C", topic: "Number Base" },
+        { q: "Hexadecimal digit 'A' equals decimal:", a: ["8", "9", "10", "11"], correct: "C", topic: "Number Base" },
+        { q: "Binary 1111 in hexadecimal is:", a: ["E", "F", "10", "15"], correct: "B", topic: "Number Base" },
+        { q: "Octal 10 in decimal is:", a: ["8", "10", "12", "16"], correct: "A", topic: "Number Base" },
+        { q: "Binary is used in computers because:", a: ["It's easy", "Electronic circuits have two states", "It's colorful", "It's fast"], correct: "B", topic: "Number Base" },
+        { q: "MSB stands for:", a: ["Most Significant Bit", "Maximum System Bit", "Main System Byte", "Multiple Signal Bit"], correct: "A", topic: "Number Base" },
+        { q: "LSB stands for:", a: ["Least Significant Bit", "Last System Bit", "Low Signal Byte", "Long System Byte"], correct: "A", topic: "Number Base" },
+        { q: "Binary 10000 in decimal is:", a: ["8", "16", "32", "64"], correct: "B", topic: "Number Base" },
+        { q: "Decimal 32 in binary is:", a: ["100000", "10000", "11111", "101010"], correct: "A", topic: "Number Base" },
+        { q: "Hexadecimal F in binary is:", a: ["1111", "1010", "1100", "1001"], correct: "A", topic: "Number Base" },
+        { q: "Two's complement is used for:", a: ["Addition only", "Representing negative numbers", "Multiplication", "Division"], correct: "B", topic: "Number Base" },
+        { q: "1 byte equals how many bits?", a: ["4", "8", "16", "32"], correct: "B", topic: "Number Base" },
+        { q: "Binary subtraction: 10 - 1 =", a: ["1", "10", "11", "100"], correct: "A", topic: "Number Base" },
+        { q: "Octal digits range from:", a: ["0-7", "0-8", "0-9", "0-10"], correct: "A", topic: "Number Base" },
+        
+        // File Organisation (15 questions)
+        { q: "File organisation refers to:", a: ["How files are named", "How records are arranged in a file", "How computers are connected", "How software is installed"], correct: "B", topic: "File Organisation" },
+        { q: "Sequential file organisation means:", a: ["Random access", "Records stored in order", "No order", "Compressed files"], correct: "B", topic: "File Organisation" },
+        { q: "Direct file organisation allows:", a: ["Sequential access only", "Random access to records", "No access", "Slow access"], correct: "B", topic: "File Organisation" },
+        { q: "Indexed file organisation uses:", a: ["No index", "Index to locate records", "Sequential only", "Random only"], correct: "B", topic: "File Organisation" },
+        { q: "A key field is used to:", a: ["Lock files", "Identify records uniquely", "Delete records", "Copy files"], correct: "B", topic: "File Organisation" },
+        { q: "Primary key must be:", a: ["Duplicate", "Unique", "Empty", "Optional"], correct: "B", topic: "File Organisation" },
+        { q: "Hashing is used in:", a: ["Sequential files", "Direct file organisation", "Indexed files", "All files"], correct: "B", topic: "File Organisation" },
+        { q: "File access methods include:", a: ["Only sequential", "Sequential and direct", "Only direct", "No methods"], correct: "B", topic: "File Organisation" },
+        { q: "ISAM stands for:", a: ["Indexed Sequential Access Method", "Internal System Access Method", "Indexed System All Method", "Internal Sequential All Method"], correct: "A", topic: "File Organisation" },
+        { q: "VSAM stands for:", a: ["Virtual Sequential Access Method", "Virtual Storage Access Method", "Variable System Access Method", "Virtual System All Method"], correct: "B", topic: "File Organisation" },
+        { q: "File inversion means:", a: ["Deleting files", "Creating secondary index", "Compressing files", "Encrypting files"], correct: "B", topic: "File Organisation" },
+        { q: "B-tree is used for:", a: ["Gaming", "Database indexing", "Web browsing", "Printing"], correct: "B", topic: "File Organisation" },
+        { q: "Clustered file organisation groups:", a: ["Unrelated records", "Related records together", "All records randomly", "No records"], correct: "B", topic: "File Organisation" },
+        { q: "Heap file organisation stores records:", a: ["In order", "Without any order", "By index", "By key"], correct: "B", topic: "File Organisation" },
+        { q: "File organisation affects:", a: ["Computer color", "Access speed and efficiency", "Internet speed", "Monitor size"], correct: "B", topic: "File Organisation" },
+        
+        // Data and Information (10 questions)
+        { q: "Data warehouse is used for:", a: ["Gaming", "Storing large amounts of historical data", "Web browsing", "Printing"], correct: "B", topic: "Data" },
+        { q: "Data mining extracts:", a: ["Viruses", "Patterns from large datasets", "Hardware", "Software"], correct: "B", topic: "Data" },
+        { q: "Big Data characteristics include:", a: ["Small volume", "Volume, Velocity, Variety", "Single source", "Simple structure"], correct: "B", topic: "Data" },
+        { q: "Data cleansing means:", a: ["Deleting all data", "Removing errors and inconsistencies", "Encrypting data", "Compressing data"], correct: "B", topic: "Data" },
+        { q: "Metadata is:", a: ["Main data", "Data about data", "Corrupted data", "Deleted data"], correct: "B", topic: "Data" },
+        { q: "Data redundancy means:", a: ["No data", "Duplicate data", "Encrypted data", "Compressed data"], correct: "B", topic: "Data" },
+        { q: "Data integrity ensures:", a: ["Data is deleted", "Data is accurate and consistent", "Data is hidden", "Data is encrypted"], correct: "B", topic: "Data" },
+        { q: "ETL stands for:", a: ["Extract, Transform, Load", "Enter, Type, List", "Edit, Test, Launch", "Email, Text, Link"], correct: "A", topic: "Data" },
+        { q: "Data visualization helps to:", a: ["Hide data", "Understand data through graphs", "Delete data", "Compress data"], correct: "B", topic: "Data" },
+        { q: "Real-time data processing means:", a: ["Delayed processing", "Immediate processing", "No processing", "Batch processing"], correct: "B", topic: "Data" },
+        
+        // Occupation in Computer Science (10 questions)
+        { q: "A machine learning engineer:", a: ["Repairs hardware", "Creates AI models", "Manages networks", "Tests software"], correct: "B", topic: "Occupations" },
+        { q: "A DevOps engineer focuses on:", a: ["Only development", "Development and operations", "Only operations", "Only testing"], correct: "B", topic: "Occupations" },
+        { q: "A UX designer designs:", a: ["Hardware", "User experience", "Networks", "Databases"], correct: "B", topic: "Occupations" },
+        { q: "A blockchain developer works with:", a: ["Traditional databases", "Distributed ledger technology", "Networks", "Hardware"], correct: "B", topic: "Occupations" },
+        { q: "A QA engineer:", a: ["Creates software", "Tests software quality", "Manages networks", "Designs websites"], correct: "B", topic: "Occupations" },
+        { q: "A solutions architect:", a: ["Writes code only", "Designs overall IT solutions", "Tests software", "Manages databases"], correct: "B", topic: "Occupations" },
+        { q: "A Scrum Master:", a: ["Writes code", "Facilitates agile development", "Tests software", "Manages hardware"], correct: "B", topic: "Occupations" },
+        { q: "A technical writer:", a: ["Creates software", "Writes technical documentation", "Manages networks", "Tests hardware"], correct: "B", topic: "Occupations" },
+        { q: "A product manager:", a: ["Writes code", "Manages product development", "Tests software", "Manages networks"], correct: "B", topic: "Occupations" },
+        { q: "An AI researcher:", a: ["Repairs computers", "Advances artificial intelligence", "Manages networks", "Tests software"], correct: "B", topic: "Occupations" },
+        
+        // Database Management (15 questions)
+        { q: "DBMS stands for:", a: ["Database Management System", "Data Basic Management System", "Database Basic Management Software", "Data Base Management Software"], correct: "A", topic: "Database" },
+        { q: "SQL stands for:", a: ["Structured Query Language", "Simple Query Language", "System Query Language", "Standard Question Language"], correct: "A", topic: "Database" },
+        { q: "RDBMS stands for:", a: ["Relational Database Management System", "Random Database Management System", "Real Database Management System", "Remote Database Management System"], correct: "A", topic: "Database" },
+        { q: "A table in database is also called:", a: ["Field", "Relation", "Record", "Query"], correct: "B", topic: "Database" },
+        { q: "Primary key is used to:", a: ["Delete records", "Uniquely identify records", "Sort records", "Filter records"], correct: "B", topic: "Database" },
+        { q: "Foreign key creates:", a: ["Primary key", "Relationship between tables", "New table", "New database"], correct: "B", topic: "Database" },
+        { q: "SELECT statement is used to:", a: ["Delete data", "Retrieve data", "Update data", "Insert data"], correct: "B", topic: "Database" },
+        { q: "INSERT statement is used to:", a: ["Delete data", "Add new data", "Update data", "Retrieve data"], correct: "B", topic: "Database" },
+        { q: "UPDATE statement is used to:", a: ["Delete data", "Modify existing data", "Add data", "Retrieve data"], correct: "B", topic: "Database" },
+        { q: "DELETE statement is used to:", a: ["Add data", "Remove data", "Update data", "Retrieve data"], correct: "B", topic: "Database" },
+        { q: "WHERE clause is used to:", a: ["Sort data", "Filter records", "Delete database", "Create table"], correct: "B", topic: "Database" },
+        { q: "JOIN is used to:", a: ["Delete tables", "Combine tables", "Create database", "Update records"], correct: "B", topic: "Database" },
+        { q: "Normalization reduces:", a: ["Speed", "Data redundancy", "Security", "Capacity"], correct: "B", topic: "Database" },
+        { q: "ACID properties ensure:", a: ["Fast queries", "Transaction reliability", "Large storage", "Easy access"], correct: "B", topic: "Database" },
+        { q: "NoSQL databases are good for:", a: ["Structured data only", "Unstructured/big data", "Small data", "Text only"], correct: "B", topic: "Database" }
+      ]
+    };
+
+    // ========================================================
+    // UTILITY FUNCTIONS
+    // ========================================================
+    
+    function shuffle(arr) {
+      const array = [...arr];
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function generateQuestions() {
+      const objContainer = document.getElementById('objContainer');
+      
+      // Get questions for student's class and select 30 random questions
+      const classQuestions = questionBank[studentClass] || [];
+      selectedQuestions = shuffle(classQuestions).slice(0, 30);
+      
+      objContainer.innerHTML = '';
+      
+      selectedQuestions.forEach((q, index) => {
+        const options = shuffle(q.a);
+        const correctOptionText = q.a[q.correct.charCodeAt(0) - 'A'.charCodeAt(0)];
+        q.correctOptionText = correctOptionText;
+        
+        objContainer.innerHTML += `
+          <div class='question'>
+            <b>${index+1}. ${q.q}</b>
+            <label class='radio-label'><input type='radio' name='obj${index}' value='${options[0]}' onchange="updateProgress()"> <span>A. ${options[0]}</span></label>
+            <label class='radio-label'><input type='radio' name='obj${index}' value='${options[1]}' onchange="updateProgress()"> <span>B. ${options[1]}</span></label>
+            <label class='radio-label'><input type='radio' name='obj${index}' value='${options[2]}' onchange="updateProgress()"> <span>C. ${options[2]}</span></label>
+            <label class='radio-label'><input type='radio' name='obj${index}' value='${options[3]}' onchange="updateProgress()"> <span>D. ${options[3]}</span></label>
+          </div>`;
+      });
+    }
+
+    function updateProgress() {
+      let answered = 0;
+      for (let i = 0; i < 30; i++) {
+        const radios = document.getElementsByName(`obj${i}`);
+        for (const radio of radios) {
+          if (radio.checked) {
+            answered++;
+            break;
+          }
+        }
+      }
+      const percentage = (answered / 30) * 100;
+      progressBar.style.width = `${percentage}%`;
+      progressText.textContent = answered;
+    }
+
+    function startTimer() {
+      timerInterval = setInterval(() => {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+        timeLeft--;
+        
+        // Warning at 5 minutes
+        if (timeLeft === 300) {
+          timerDisplay.classList.add('timer-warning');
+        }
+        // Critical warning at 1 minute
+        if (timeLeft === 60) {
+          timerDisplay.classList.add('timer-warning');
+          timerDisplay.style.animation = 'blink 0.5s infinite';
+        }
+        
+        if (timeLeft < 0) {
+          clearInterval(timerInterval);
+          submitExam();
+        }
+      }, 1000);
+    }
+
+    // Detect tab switching/minimizing with penalty tracking
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden && !examSection.classList.contains('hidden')) {
+        cheatingCount++;
+        penaltyCount.textContent = cheatingCount;
+        penaltyMarks.textContent = cheatingCount * CHEATING_PENALTY_PER_INCIDENT;
+        penaltyDisplay.classList.remove('hidden');
+        
+        // Show warning modal
+        showWarningModal();
+      }
+    });
+
+    function showWarningModal() {
+      const modal = document.createElement('div');
+      modal.className = 'warning-modal';
+      modal.innerHTML = `
+        <div class="warning-content">
+          <div class="warning-icon">⚠️</div>
+          <h3 style="color: #dc3545; margin-bottom: 15px;">Tab Switch Detected!</h3>
+          <p style="margin-bottom: 20px; font-size: 1.1rem;">
+            You have left the exam page <strong>${cheatingCount} time(s)</strong>.<br>
+            <strong>Penalty: -${cheatingCount * CHEATING_PENALTY_PER_INCIDENT} marks</strong>
+          </p>
+          <button onclick="this.parentElement.parentElement.remove()" style="padding: 12px 30px; font-size: 1rem;">I Understand</button>
+        </div>
+      `;
+      document.body.appendChild(modal);
+      
+      // Auto-remove after 5 seconds
+      setTimeout(() => {
+        if (modal.parentElement) modal.remove();
+      }, 5000);
+    }
+
+    function startExam() {
+      studentFname = document.getElementById('fname').value.trim();
+      studentLname = document.getElementById('lname').value.trim();
+      studentClass = document.getElementById('studentClass').value;
+      
+      if (!studentFname || !studentLname) {
+        alert("❌ Please enter both your first name and surname to proceed.");
+        return;
+      }
+      if (!studentClass) {
+        alert("❌ Please select your class (JSS3, SS1, SS2, or SS3) to proceed.");
+        return;
+      }
+
+      const storageKey = `eliken_computer_exam_${studentClass}_${studentFname.toLowerCase()}_${studentLname.toLowerCase()}`;
+      
+      // Check if student has already taken exam
+      if (localStorage.getItem(storageKey)) {
+        try {
+          const stored = JSON.parse(localStorage.getItem(storageKey));
+          if (stored.status === 'submitted') {
+            alert("ℹ️ You have already completed this examination.\n\nName: " + stored.student.fname + " " + stored.student.lname + "\nClass: " + stored.student.class + "\nScore: " + stored.scores.finalScore + "/15\n\nContact Master Vincent for inquiries.");
+            return;
+          }
+        } catch (e) {
+          alert("Session error. Please contact Master Vincent.");
+          return;
+        }
+      }
+
+      // Save exam session
+      localStorage.setItem(storageKey, JSON.stringify({ 
+        status: 'in-progress', 
+        startTime: new Date().toISOString(),
+        student: { fname: studentFname, lname: studentLname, class: studentClass }
+      }));
+
+      // Update UI
+      classIndicator.textContent = `Class: ${studentClass} | Student: ${studentFname} ${studentLname}`;
+      questionClassLabel.textContent = studentClass;
+      
+      loginSection.classList.add('hidden');
+      examSection.classList.remove('hidden');
+      
+      generateQuestions();
+      startTimer();
+      window.scrollTo(0, 0);
+      
+      // Confirm start
+      if (!confirm("⚠️ IMPORTANT: Do NOT leave this page or minimize the browser.\n\nEach tab switch will result in -2 marks penalty.\n\nAre you ready to start?")) {
+        location.reload();
+      }
+    }
+
+    function calculateScore() {
+      let score = 0;
+      const markPerQuestion = 0.5; // 30 questions × 0.5 = 15 marks
+      
+      selectedQuestions.forEach((q, index) => {
+        const radios = document.getElementsByName(`obj${index}`);
+        for (const radio of radios) {
+          if (radio.checked && radio.value === q.correctOptionText) {
+            score += markPerQuestion;
+            break;
+          }
+        }
+      });
+      
+      return {
+        score: score,
+        maxScore: 15
+      };
+    }
+
+    function submitExam() {
+      clearInterval(timerInterval);
+      
+      const scores = calculateScore();
+      let finalScore = scores.score;
+      let totalPenalty = cheatingCount * CHEATING_PENALTY_PER_INCIDENT;
+      
+      // Apply penalty (score cannot go below 0)
+      if (cheatingCount > 0) {
+        finalScore = Math.max(0, scores.score - totalPenalty);
+      }
+
+      const storageKey = `eliken_computer_exam_${studentClass}_${studentFname.toLowerCase()}_${studentLname.toLowerCase()}`;
+      
+      const resultData = {
+        student: { fname: studentFname, lname: studentLname, class: studentClass },
+        scores: {
+          rawScore: scores.score,
+          finalScore: finalScore,
+          penalty: totalPenalty,
+          cheatingCount: cheatingCount,
+          maxScore: scores.maxScore
+        },
+        submissionTime: new Date().toLocaleString('en-NG'),
+        status: 'submitted'
+      };
+      
+      localStorage.setItem(storageKey, JSON.stringify(resultData));
+      
+      examSection.classList.add('hidden');
+      resultSection.classList.remove('hidden');
+      
+      let penaltyNote = cheatingCount > 0 
+        ? `<br><span class="penalty-warning">⚠️ ${totalPenalty}-mark penalty applied (${cheatingCount} tab switch(es) detected)</span>`
+        : '';
+      
+      finalScoreDisplay.innerHTML = `
+        🎯 Final Score: <strong>${finalScore.toFixed(1)} / ${scores.maxScore}</strong> marks${penaltyNote}
+        <br>📊 Percentage: ${((finalScore/scores.maxScore)*100).toFixed(1)}%
+        <br>👤 Student: ${studentFname} ${studentLname}
+        <br>🏫 Class: ${studentClass}
+        <br>⏰ Submitted: ${new Date().toLocaleString('en-NG')}
+      `;
+      
+      // Display motivational message based on score (8/15 = 50% passing)
+      legendMessageDiv.classList.remove('hidden', 'legend-up', 'legend-down');
+      if (finalScore >= 8) {
+        legendMessageDiv.classList.add('legend-up');
+        legendMessageDiv.innerHTML = "👍 YOU ARE A LEGEND!<br>Master Vincent is proud of you! 😊";
+      } else {
+        legendMessageDiv.classList.add('legend-down');
+        legendMessageDiv.innerHTML = "👎 WORK HARDER NEXT TIME<br>Master Vincent is not happy with you. 😢";
+      }
+      
+      // Final alert
+      const emoji = finalScore >= 8 ? '😊' : '😢';
+      const message = finalScore >= 8 ? 'You are a legend!' : 'Work harder next time.';
+      alert(`✅ Exam submitted successfully!\n\nStudent: ${studentFname} ${studentLname}\nClass: ${studentClass}\nScore: ${finalScore.toFixed(1)}/15 (${((finalScore/scores.maxScore)*100).toFixed(1)}%)\n${cheatingCount > 0 ? `Penalty: ${totalPenalty} marks (${cheatingCount} tab switches)\n` : ''}\n\n${message} Master Vincent is ${finalScore >= 8 ? 'proud' : 'not happy'} with you! ${emoji}`);
+      
+      window.scrollTo(0, 0);
+    }
+
+    // Handle logo error gracefully
+    document.getElementById('schoolImage').onerror = function() {
+      this.style.display = 'none';
+      document.getElementById('logoPlaceholder').style.display = 'flex';
+    };
+  </script>
+</body>
+</html>
